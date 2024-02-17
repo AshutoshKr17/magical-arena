@@ -8,7 +8,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// Function to prompt user for player attributes
+// Function to prompt user for player attributes 
 const getPlayerInput = (playerName, callback) => {
     rl.question(`Enter attributes for ${playerName} (health, strength, attack): `, (input) => {
         const [health, strength, attack] = input.split(' ').map(val => parseInt(val));
@@ -16,7 +16,7 @@ const getPlayerInput = (playerName, callback) => {
     });
 };
 
-// Function to prompt user for number of sides on the dice
+// Function to prompt user for number of sides on the dice to make this code more dynamic.
 const getDiceSides = (callback) => {
     rl.question('Enter number of sides on the dice: ', (input) => {
         const sides = parseInt(input);
@@ -28,7 +28,7 @@ const getDiceSides = (callback) => {
 getPlayerInput('Player A', (playerAAttributes) => {
     getPlayerInput('Player B', (playerBAttributes) => {
         getDiceSides((diceSides) => {
-            // Create players and start the game
+            // Creating players and starting the game
             const playerA = new Player(playerAAttributes.health, playerAAttributes.strength, playerAAttributes.attack);
             const playerB = new Player(playerBAttributes.health, playerBAttributes.strength, playerBAttributes.attack);
             const game = new Game(playerA, playerB, diceSides);

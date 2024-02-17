@@ -12,7 +12,7 @@ class Player {
     defendRoll(sides) {
         return Math.floor(Math.random() * sides) + 1; // 1-sides random roll
     }
-
+    //calculating damage delt by the player to the oppnent and the opponent defended and how much damage take by the opponent
     performAttack(opponent, diceSides) {
         const attackRoll = this.attackRoll(diceSides);
         const damageDealt = attackRoll * this.attack;

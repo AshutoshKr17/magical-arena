@@ -8,6 +8,7 @@ class Game {
     }
 
     playTurn() {
+        //logic of the game
         const attackRoll = this.currentPlayer.attackRoll(this.diceSides);
         const defendRoll = this.opponent.defendRoll(this.diceSides);
     
@@ -16,7 +17,7 @@ class Game {
     
         const damageTaken = Math.max(damageDealt - damageDefended, 0);
         this.opponent.health -= damageTaken;
-    
+        
         console.log(`${this.currentPlayer.constructor.name} ${this.currentPlayer === this.playerA ? 'A' : 'B'} attacks ${this.opponent.constructor.name} ${this.opponent === this.playerA ? 'A' : 'B'}!`);
         console.log(`Attack Roll: ${attackRoll}`);
         console.log(`Defend Roll: ${defendRoll}`);
@@ -24,16 +25,19 @@ class Game {
         console.log(`Damage Defended: ${damageDefended}`);
         console.log(`${this.opponent.constructor.name}'s Health: ${this.opponent.health}\n`);
     
-        // Swap players for the next turn
+        // Swaping players for the next turn
         [this.currentPlayer, this.opponent] = [this.opponent, this.currentPlayer];
     }
 
     playGame() {
-        while (this.playerA.health > 0 && this.playerB.health > 0) {
+        //this loop will run until both players health is greater than zero
+        while (this.playerA.health > 0 && this.playerB.health > 0) {    
             this.playTurn();
         }
-
+        //finding who won 
         const winner = (this.playerA.health > 0) ? this.playerA : this.playerB;
+        
+        //printing the winner
         console.log(`${winner.constructor.name}  ${this.opponent === this.playerA ? 'A' : 'B'}wins the game!`);
     }
 }
