@@ -34,7 +34,7 @@ class Game {
         }
 
         const winner = (this.playerA.health > 0) ? this.playerA : this.playerB;
-        console.log(`${winner.constructor.name} wins the game!`);
+        console.log(`${winner.constructor.name}  ${this.opponent === this.playerA ? 'A' : 'B'}wins the game!`);
     }
 }
 
